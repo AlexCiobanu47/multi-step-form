@@ -1,8 +1,14 @@
 import React from "react";
 interface AddonsCardProps {
   setAddons: (addonNumber: number) => void;
+  previousState: () => void;
+  nextState: () => void;
 }
-const AddonsCard: React.FC<AddonsCardProps> = ({ setAddons }) => {
+const AddonsCard: React.FC<AddonsCardProps> = ({
+  setAddons,
+  previousState,
+  nextState,
+}) => {
   const handleClick1 = () => {
     setAddons(0);
   };
@@ -11,6 +17,12 @@ const AddonsCard: React.FC<AddonsCardProps> = ({ setAddons }) => {
   };
   const handleClick3 = () => {
     setAddons(2);
+  };
+  const handlePreviousStep = () => {
+    previousState();
+  };
+  const handleNextStep = () => {
+    nextState();
   };
   return (
     <div className="bg-white p-5">
@@ -47,8 +59,8 @@ const AddonsCard: React.FC<AddonsCardProps> = ({ setAddons }) => {
         </div>
       </form>
       <div>
-        <button>Go back</button>
-        <button>Next Step</button>
+        <button onClick={handlePreviousStep}>Go back</button>
+        <button onClick={handleNextStep}>Next Step</button>
       </div>
     </div>
   );

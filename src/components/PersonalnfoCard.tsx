@@ -3,11 +3,13 @@ interface PersonalInfoCardProps {
   setName: (name: string) => void;
   setEmail: (email: string) => void;
   setPhone: (number: string) => void;
+  nextState: () => void;
 }
 const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
   setName,
   setEmail,
   setPhone,
+  nextState,
 }) => {
   const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -17,6 +19,9 @@ const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
   };
   const handlePhoneChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPhone(event.target.value);
+  };
+  const handleNextStep = () => {
+    nextState();
   };
   return (
     <div className="bg-white p-5">
@@ -49,7 +54,7 @@ const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
         </div>
       </form>
       <div>
-        <button>Next Step</button>
+        <button onClick={handleNextStep}>Next Step</button>
       </div>
     </div>
   );

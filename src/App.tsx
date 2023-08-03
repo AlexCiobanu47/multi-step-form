@@ -11,6 +11,7 @@ function App() {
     monthlyPlan: true,
     addOns: [false, false, false],
   });
+  const [currentState, setCurrentState] = useState(1);
   const setName = (name: string) => {
     const currentData = inputData;
     currentData.name = name;
@@ -61,15 +62,37 @@ function App() {
     setInputData(currentData);
     console.log(inputData);
   };
+  const incrementState = () => {
+    setCurrentState(currentState + 1);
+  };
+  const decrementState = () => {
+    setCurrentState(currentState - 1);
+  };
   return (
     <div>
-      <PersonalnfoCard
-        setName={setName}
-        setEmail={setEmail}
-        setPhone={setPhone}
-      />
-      <PlanCard setOption={setOption} setPeriod={setPlanPeriod} />
-      <AddonsCard setAddons={setAddon} />
+      {currentState == 1 && (
+        <PersonalnfoCard
+          setName={setName}
+          setEmail={setEmail}
+          setPhone={setPhone}
+          nextState={incrementState}
+        />
+      )}
+      {currentState == 2 && (
+        <PlanCard
+          setOption={setOption}
+          setPeriod={setPlanPeriod}
+          previousState={decrementState}
+          nextState={incrementState}
+        />
+      )}
+      {currentState == 3 && (
+        <AddonsCard
+          setAddons={setAddon}
+          previousState={decrementState}
+          nextState={incrementState}
+        />
+      )}
     </div>
   );
 }

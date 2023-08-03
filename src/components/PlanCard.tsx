@@ -2,8 +2,15 @@ import React from "react";
 interface PlanCardProps {
   setOption: (optionNumber: number) => void;
   setPeriod: () => void;
+  previousState: () => void;
+  nextState: () => void;
 }
-const PlanCard: React.FC<PlanCardProps> = ({ setOption, setPeriod }) => {
+const PlanCard: React.FC<PlanCardProps> = ({
+  setOption,
+  setPeriod,
+  nextState,
+  previousState,
+}) => {
   const handleOption1Click = () => {
     setOption(1);
   };
@@ -16,6 +23,13 @@ const PlanCard: React.FC<PlanCardProps> = ({ setOption, setPeriod }) => {
   const handlePlanPeriodChange = () => {
     setPeriod();
   };
+  const handlePreviousStep = () => {
+    previousState();
+  };
+  const handleNextStep = () => {
+    nextState();
+  };
+
   return (
     <div className="bg-white p-5">
       <h1>Select your plan</h1>
@@ -49,8 +63,8 @@ const PlanCard: React.FC<PlanCardProps> = ({ setOption, setPeriod }) => {
         <span>Yearly</span>
       </form>
       <div>
-        <button>Go back</button>
-        <button>Next Step</button>
+        <button onClick={handlePreviousStep}>Go back</button>
+        <button onClick={handleNextStep}>Next Step</button>
       </div>
     </div>
   );
