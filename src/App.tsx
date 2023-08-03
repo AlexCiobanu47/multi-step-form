@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddonsCard from "./components/AddonsCard";
+import FinishCard from "./components/FinishCard";
 import PersonalnfoCard from "./components/PersonalnfoCard";
 import PlanCard from "./components/PlanCard";
 function App() {
@@ -89,6 +90,13 @@ function App() {
       {currentState == 3 && (
         <AddonsCard
           setAddons={setAddon}
+          previousState={decrementState}
+          nextState={incrementState}
+        />
+      )}
+      {currentState == 4 && (
+        <FinishCard
+          data={inputData}
           previousState={decrementState}
           nextState={incrementState}
         />
