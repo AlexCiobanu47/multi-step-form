@@ -38,7 +38,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
   const advancedPrice = 12;
   const proPrice = 15;
   return (
-    <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
+    <div className="z-50 bg-white p-5 m-5 rounded-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Select your plan</h1>
       <p className="text-CoolGray">
         You have the option of monthly or yearly billing.

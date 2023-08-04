@@ -25,7 +25,7 @@ const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
     nextState();
   };
   return (
-    <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
+    <div className="z-50 bg-white p-5 m-5 rounded-lg  flex flex-col">
       <div>
         <h1 className="text-MarineBlue text-xl font-bold">Personal info</h1>
         <p className="text-CoolGray">
@@ -61,7 +61,7 @@ const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
           </div>
         </form>
       </div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end bottom-0 right-0">
         <button
           onClick={handleNextStep}
           className="text-white py-1 px-4 bg-MarineBlue rounded-md"

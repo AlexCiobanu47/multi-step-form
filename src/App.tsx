@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./App.css";
+import desktopSidebar from "./assets/images/bg-sidebar-desktop.svg";
 import mobileSidebar from "./assets/images/bg-sidebar-mobile.svg";
 import AddonsCard from "./components/AddonsCard";
 import FinishCard from "./components/FinishCard";
@@ -58,9 +60,10 @@ function App() {
     setCustomizableProfile(!customizableProfile);
   };
   return (
-    <div className="w-full h-full flex flex-col">
-      <img src={mobileSidebar} alt="" className="w-full" />
-      <div className="-mt-20 ">
+    <div className=" flex flex-col max-w-3xl bg-white items-center justify-center sm:flex-row sm:p-5 shadow-lg">
+      <img src={mobileSidebar} alt="" className="w-full sm:hidden" />
+      <img src={desktopSidebar} alt="" className="hidden sm:inline-block" />
+      <div className="-mt-20 sm:-mt-0 ">
         {currentState == 1 && (
           <PersonalnfoCard
             setName={setName}
