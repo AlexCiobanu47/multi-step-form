@@ -10,9 +10,11 @@ function App() {
     phoneNumber: "",
     plan: 0,
     monthlyPlan: true,
-    addOns: [false, false, false],
   });
   const [currentState, setCurrentState] = useState(1);
+  const [onlineService, setOnlineService] = useState(false);
+  const [largerStorage, setLargetStorage] = useState(false);
+  const [customizableProfile, setCustomizableProfile] = useState(false);
   const setName = (name: string) => {
     const currentData = inputData;
     currentData.name = name;
@@ -43,31 +45,21 @@ function App() {
     setInputData(currentData);
     console.log(inputData);
   };
-  const setAddon = (addonNumber: number) => {
-    const currentData = inputData;
-    const currentAddons = inputData.addOns;
-    switch (addonNumber) {
-      case 0:
-        currentAddons[0] = !currentAddons[addonNumber];
-        break;
-      case 1:
-        currentAddons[1] = !currentAddons[addonNumber];
-        break;
-      case 2:
-        currentAddons[2] = !currentAddons[addonNumber];
-        break;
-      default:
-        break;
-    }
-    currentData.addOns = currentAddons;
-    setInputData(currentData);
-    console.log(inputData);
-  };
+
   const incrementState = () => {
     setCurrentState(currentState + 1);
   };
   const decrementState = () => {
     setCurrentState(currentState - 1);
+  };
+  const changeOnlineService = () => {
+    setOnlineService(!onlineService);
+  };
+  const changeLargerStorage = () => {
+    setLargetStorage(!largerStorage);
+  };
+  const changeCustomizableProfile = () => {
+    setCustomizableProfile(!customizableProfile);
   };
   return (
     <div>
@@ -89,9 +81,11 @@ function App() {
       )}
       {currentState == 3 && (
         <AddonsCard
-          setAddons={setAddon}
           previousState={decrementState}
           nextState={incrementState}
+          changeOnlineService={changeOnlineService}
+          changeLargerStorage={changeLargerStorage}
+          changeCustomizableProfile={changeCustomizableProfile}
         />
       )}
       {currentState == 4 && (
@@ -99,6 +93,9 @@ function App() {
           data={inputData}
           previousState={decrementState}
           nextState={incrementState}
+          onlineService={onlineService}
+          largerStorage={largerStorage}
+          customizableProfile={customizableProfile}
         />
       )}
     </div>

@@ -1,22 +1,26 @@
 import React from "react";
 interface AddonsCardProps {
-  setAddons: (addonNumber: number) => void;
   previousState: () => void;
   nextState: () => void;
+  changeOnlineService: () => void;
+  changeLargerStorage: () => void;
+  changeCustomizableProfile: () => void;
 }
 const AddonsCard: React.FC<AddonsCardProps> = ({
-  setAddons,
   previousState,
   nextState,
+  changeOnlineService,
+  changeLargerStorage,
+  changeCustomizableProfile,
 }) => {
   const handleClick1 = () => {
-    setAddons(0);
+    changeOnlineService();
   };
   const handleClick2 = () => {
-    setAddons(1);
+    changeLargerStorage();
   };
   const handleClick3 = () => {
-    setAddons(2);
+    changeCustomizableProfile();
   };
   const handlePreviousStep = () => {
     previousState();

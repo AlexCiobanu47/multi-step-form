@@ -4,11 +4,17 @@ interface FinishCardProps {
   data: inputData;
   previousState: () => void;
   nextState: () => void;
+  onlineService: boolean;
+  largerStorage: boolean;
+  customizableProfile: boolean;
 }
 const FinishCard: React.FC<FinishCardProps> = ({
   data,
   previousState,
   nextState,
+  onlineService,
+  largerStorage,
+  customizableProfile,
 }) => {
   const handlePreviousStep = () => {
     previousState();
@@ -33,8 +39,9 @@ const FinishCard: React.FC<FinishCardProps> = ({
           <p>$90/yr</p>
         </div>
         <div>
-          TO DO: update inputData.addon to include and object with addonName and
-          price, instead of a boolean
+          {onlineService && <p>online service</p>}
+          {largerStorage && <p>larger storage</p>}
+          {customizableProfile && <p>customizable profile</p>}
         </div>
         <div>
           <p>Total(per year)</p>
