@@ -45,10 +45,10 @@ function App() {
   };
 
   const incrementState = () => {
-    setCurrentState(currentState + 1);
+    setCurrentState((prev) => prev + 1);
   };
   const decrementState = () => {
-    setCurrentState(currentState - 1);
+    setCurrentState((prev) => prev - 1);
   };
   const changeOnlineService = () => {
     setOnlineService(!onlineService);

@@ -28,6 +28,10 @@ const FinishCard: React.FC<FinishCardProps> = ({
   const handleNextStep = () => {
     nextState();
   };
+  const handleChangeTab = () => {
+    handlePreviousStep();
+    handlePreviousStep();
+  };
   const calculatePlanPrice = () => {
     switch (plan) {
       case 1:
@@ -74,7 +78,10 @@ const FinishCard: React.FC<FinishCardProps> = ({
                 {isMonthly ? <span>(Monthly)</span> : <span>(Yearly)</span>}
               </div>
             </div>
-            <button className="text-CoolGray font-semibold underline">
+            <button
+              className="text-CoolGray font-semibold underline"
+              onClick={handleChangeTab}
+            >
               Change
             </button>
           </div>
