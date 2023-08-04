@@ -23,19 +23,16 @@ function App() {
     const currentData = inputData;
     currentData.name = name;
     setInputData(currentData);
-    console.log(inputData);
   };
   const setEmail = (email: string) => {
     const currentData = inputData;
     currentData.email = email;
     setInputData(currentData);
-    console.log(inputData);
   };
   const setPhone = (phoneNumber: string) => {
     const currentData = inputData;
     currentData.phoneNumber = phoneNumber;
     setInputData(currentData);
-    console.log(inputData);
   };
   const setOption = (optionNumber: number) => {
     setPlan(optionNumber);

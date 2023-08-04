@@ -35,12 +35,15 @@ const FinishCard: React.FC<FinishCardProps> = ({
   const calculatePlanPrice = () => {
     switch (plan) {
       case 1:
+        setTotal(arcadePrice);
         setPlanPrice(arcadePrice);
         break;
       case 2:
+        setTotal(advancedPrice);
         setPlanPrice(advancedPrice);
         break;
       case 3:
+        setTotal(proPrice);
         setPlanPrice(proPrice);
         break;
 
@@ -50,7 +53,6 @@ const FinishCard: React.FC<FinishCardProps> = ({
   };
   const calculateTotal = () => {
     calculatePlanPrice();
-    setTotal(planPrice);
     if (onlineService) setTotal((prev) => prev + 1);
     if (largerStorage) setTotal((prev) => prev + 2);
     if (customizableProfile) setTotal((prev) => prev + 2);
