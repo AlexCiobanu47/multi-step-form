@@ -1,27 +1,60 @@
-import React from "react";
-import { inputData } from "../types/inputData";
+import React, { useEffect, useState } from "react";
 interface FinishCardProps {
-  data: inputData;
   previousState: () => void;
   nextState: () => void;
+  plan: number;
+  isMonthly: boolean;
   onlineService: boolean;
   largerStorage: boolean;
   customizableProfile: boolean;
 }
 const FinishCard: React.FC<FinishCardProps> = ({
-  data,
   previousState,
   nextState,
+  plan,
+  isMonthly,
   onlineService,
   largerStorage,
   customizableProfile,
 }) => {
+  const arcadePrice = 9;
+  const advancedPrice = 12;
+  const proPrice = 15;
+  const [total, setTotal] = useState(0);
+  const [planPrice, setPlanPrice] = useState(arcadePrice);
   const handlePreviousStep = () => {
     previousState();
   };
   const handleNextStep = () => {
     nextState();
   };
+  const calculatePlanPrice = () => {
+    switch (plan) {
+      case 1:
+        setPlanPrice(arcadePrice);
+        break;
+      case 2:
+        setPlanPrice(advancedPrice);
+        break;
+      case 3:
+        setPlanPrice(proPrice);
+        break;
+
+      default:
+        break;
+    }
+  };
+  const calculateTotal = () => {
+    calculatePlanPrice();
+    setTotal(planPrice);
+    if (onlineService) setTotal((prev) => prev + 1);
+    if (largerStorage) setTotal((prev) => prev + 2);
+    if (customizableProfile) setTotal((prev) => prev + 2);
+    if (!isMonthly) setTotal((prev) => prev * 10);
+  };
+  useEffect(() => {
+    calculateTotal();
+  }, []);
   return (
     <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Finishing up</h1>
@@ -33,44 +66,51 @@ const FinishCard: React.FC<FinishCardProps> = ({
           <div>
             <div className="flex text-MarineBlue font-semibold">
               <div>
-                {data.plan == 1 && <h2>Arcade</h2>}
-                {data.plan == 2 && <h2>Advanced</h2>}
-                {data.plan == 3 && <h2>Pro</h2>}
+                {plan == 1 && <h2>Arcade</h2>}
+                {plan == 2 && <h2>Advanced</h2>}
+                {plan == 3 && <h2>Pro</h2>}
               </div>
               <div>
-                {data.monthlyPlan && <span>(Monthly)</span>}
-                {!data.monthlyPlan && <span>(Yearly)</span>}
+                {isMonthly ? <span>(Monthly)</span> : <span>(Yearly)</span>}
               </div>
             </div>
             <button className="text-CoolGray font-semibold underline">
               Change
             </button>
           </div>
-          <p>$90/yr</p>
+          <p>${isMonthly ? `${planPrice}/mo` : `${planPrice * 10}/yr`}</p>
         </div>
         <div className="flex flex-col gap-2 my-2">
           {onlineService && (
             <div className="flex items-center justify-between">
               <p className="text-CoolGray">Online service</p>
-              <p className="text-MarineBlue font-medium">+$1/mo</p>
+              <p className="text-MarineBlue font-medium">
+                +${isMonthly ? "1/mo" : "10/yr"}
+              </p>
             </div>
           )}
           {largerStorage && (
             <div className="flex items-center justify-between">
               <p className="text-CoolGray">Larger storage</p>
-              <p className="text-MarineBlue font-medium">+$2/mo</p>
+              <p className="text-MarineBlue font-medium">
+                +${isMonthly ? "2/mo" : "20/yr"}
+              </p>
             </div>
           )}
           {customizableProfile && (
             <div className="flex items-center justify-between">
               <p className="text-CoolGray">Customizable profile</p>
-              <p className="text-MarineBlue font-medium">+$2/mo</p>
+              <p className="text-MarineBlue font-medium">
+                +${isMonthly ? "2/mo" : "20/yr"}
+              </p>
             </div>
           )}
         </div>
         <div className="flex items-center justify-between">
           <p className="text-CoolGray">Total(per year)</p>
-          <p className="text-PurplishBlue font-semibold">$120/yr</p>
+          <p className="text-PurplishBlue font-semibold">
+            {isMonthly ? <span>${total}/mo</span> : <span>${total}/yr</span>}
+          </p>
         </div>
       </div>
       <div className="flex items-center justify-between">

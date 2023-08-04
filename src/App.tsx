@@ -10,9 +10,9 @@ function App() {
     name: "",
     email: "",
     phoneNumber: "",
-    plan: 1,
   });
   const [currentState, setCurrentState] = useState(1);
+  const [plan, setPlan] = useState(1);
   const [isMonthly, setIsMonthly] = useState(true);
   const [onlineService, setOnlineService] = useState(false);
   const [largerStorage, setLargetStorage] = useState(false);
@@ -36,10 +36,7 @@ function App() {
     console.log(inputData);
   };
   const setOption = (optionNumber: number) => {
-    const currentData = inputData;
-    currentData.plan = optionNumber;
-    setInputData(currentData);
-    console.log(inputData);
+    setPlan(optionNumber);
   };
   const setMonthly = () => {
     setIsMonthly(!isMonthly);
@@ -93,9 +90,10 @@ function App() {
         )}
         {currentState == 4 && (
           <FinishCard
-            data={inputData}
             previousState={decrementState}
             nextState={incrementState}
+            plan={plan}
+            isMonthly={isMonthly}
             onlineService={onlineService}
             largerStorage={largerStorage}
             customizableProfile={customizableProfile}
