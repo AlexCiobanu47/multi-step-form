@@ -4,15 +4,17 @@ import arcadeIcon from "../assets/images/icon-arcade.svg";
 import proIcon from "../assets/images/icon-pro.svg";
 interface PlanCardProps {
   setOption: (optionNumber: number) => void;
-  setPeriod: () => void;
   previousState: () => void;
   nextState: () => void;
+  setMonthly: () => void;
+  isMonthly: boolean;
 }
 const PlanCard: React.FC<PlanCardProps> = ({
   setOption,
-  setPeriod,
   nextState,
   previousState,
+  setMonthly,
+  isMonthly,
 }) => {
   const handleOption1Click = () => {
     setOption(1);
@@ -24,7 +26,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
     setOption(3);
   };
   const handlePlanPeriodChange = () => {
-    setPeriod();
+    setMonthly();
   };
   const handlePreviousStep = () => {
     previousState();
@@ -32,7 +34,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
   const handleNextStep = () => {
     nextState();
   };
-
+  const arcadePrice = 9;
+  const advancedPrice = 12;
+  const proPrice = 15;
   return (
     <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Select your plan</h1>
@@ -48,7 +52,14 @@ const PlanCard: React.FC<PlanCardProps> = ({
             <img src={arcadeIcon} alt="" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Arcade</h2>
-              <h3 className="text-CoolGray">$9/mo</h3>
+              <h3 className="text-CoolGray">
+                $
+                {isMonthly ? (
+                  <span>{arcadePrice}/mo</span>
+                ) : (
+                  <span>{arcadePrice * 10}/yr</span>
+                )}
+              </h3>
             </div>
           </div>
           <div
@@ -58,7 +69,14 @@ const PlanCard: React.FC<PlanCardProps> = ({
             <img src={advancedIcon} alt="" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Advanced</h2>
-              <h3 className="text-CoolGray">$12/mo</h3>
+              <h3 className="text-CoolGray">
+                $
+                {isMonthly ? (
+                  <span>{advancedPrice}/mo</span>
+                ) : (
+                  <span>{advancedPrice * 10}/yr</span>
+                )}
+              </h3>
             </div>
           </div>
           <div
@@ -68,7 +86,14 @@ const PlanCard: React.FC<PlanCardProps> = ({
             <img src={proIcon} alt="" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Pro</h2>
-              <h3 className="text-CoolGray">$15/mo</h3>
+              <h3 className="text-CoolGray">
+                $
+                {isMonthly ? (
+                  <span>{proPrice}/mo</span>
+                ) : (
+                  <span>{proPrice * 10}/yr</span>
+                )}
+              </h3>
             </div>
           </div>
         </div>

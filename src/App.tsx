@@ -10,10 +10,10 @@ function App() {
     name: "",
     email: "",
     phoneNumber: "",
-    plan: 0,
-    monthlyPlan: true,
+    plan: 1,
   });
   const [currentState, setCurrentState] = useState(1);
+  const [isMonthly, setIsMonthly] = useState(true);
   const [onlineService, setOnlineService] = useState(false);
   const [largerStorage, setLargetStorage] = useState(false);
   const [customizableProfile, setCustomizableProfile] = useState(false);
@@ -41,11 +41,8 @@ function App() {
     setInputData(currentData);
     console.log(inputData);
   };
-  const setPlanPeriod = () => {
-    const currentData = inputData;
-    currentData.monthlyPlan = !currentData.monthlyPlan;
-    setInputData(currentData);
-    console.log(inputData);
+  const setMonthly = () => {
+    setIsMonthly(!isMonthly);
   };
 
   const incrementState = () => {
@@ -78,9 +75,10 @@ function App() {
         {currentState == 2 && (
           <PlanCard
             setOption={setOption}
-            setPeriod={setPlanPeriod}
             previousState={decrementState}
             nextState={incrementState}
+            setMonthly={setMonthly}
+            isMonthly={isMonthly}
           />
         )}
         {currentState == 3 && (
