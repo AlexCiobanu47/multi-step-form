@@ -4,6 +4,7 @@ import AddonsCard from "./components/AddonsCard";
 import FinishCard from "./components/FinishCard";
 import PersonalnfoCard from "./components/PersonalnfoCard";
 import PlanCard from "./components/PlanCard";
+import ThankyouCard from "./components/ThankyouCard";
 function App() {
   const [inputData, setInputData] = useState({
     name: "",
@@ -101,6 +102,7 @@ function App() {
             customizableProfile={customizableProfile}
           />
         )}
+        {currentState == 5 && <ThankyouCard />}
       </div>
     </div>
   );
