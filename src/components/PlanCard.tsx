@@ -8,6 +8,7 @@ interface PlanCardProps {
   nextState: () => void;
   setMonthly: () => void;
   isMonthly: boolean;
+  plan: number;
 }
 const PlanCard: React.FC<PlanCardProps> = ({
   setOption,
@@ -15,6 +16,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
   previousState,
   setMonthly,
   isMonthly,
+  plan,
 }) => {
   const handleOption1Click = () => {
     setOption(1);
@@ -46,7 +48,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
       <form className="my-5">
         <div className="flex flex-col gap-3">
           <div
-            className={`border rounded-lg cursor-pointer flex gap-5 p-2 `}
+            className={`border-2 ${
+              plan === 1 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
+            } rounded-lg cursor-pointer flex gap-5 p-2 `}
             onClick={handleOption1Click}
           >
             <img src={arcadeIcon} alt="" />
@@ -63,7 +67,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
             </div>
           </div>
           <div
-            className={`border rounded-lg cursor-pointer flex gap-5 p-2 `}
+            className={`border-2 ${
+              plan === 2 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
+            } rounded-lg cursor-pointer flex gap-5 p-2 `}
             onClick={handleOption2Click}
           >
             <img src={advancedIcon} alt="" />
@@ -80,7 +86,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
             </div>
           </div>
           <div
-            className={`border rounded-lg cursor-pointer flex gap-5 p-2 `}
+            className={`border-2 ${
+              plan === 3 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
+            } rounded-lg cursor-pointer flex gap-5 p-2 `}
             onClick={handleOption3Click}
           >
             <img src={proIcon} alt="" />

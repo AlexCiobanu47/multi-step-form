@@ -79,6 +79,7 @@ function App() {
             nextState={incrementState}
             setMonthly={setMonthly}
             isMonthly={isMonthly}
+            plan={plan}
           />
         )}
         {currentState == 3 && (
