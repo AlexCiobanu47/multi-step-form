@@ -63,7 +63,7 @@ function App() {
     <div className=" flex flex-col max-w-3xl bg-LightGray items-start justify-start sm:flex-row sm:p-5 shadow-lg">
       <img src={mobileSidebar} alt="" className="w-full sm:hidden" />
       <img src={desktopSidebar} alt="" className="hidden sm:inline-block" />
-      <div className="-mt-32 sm:-mt-0 mb-24 sm:mb-0 sm:-ml-52 sm:mr-32 self-center">
+      <div className="-mt-32 sm:-mt-0 mb-24 sm:mb-0 sm:-ml-52 sm:mr-14 self-center">
         <ul className="flex sm:flex-col gap-5 w-40">
           <li className="flex items-center justify-between gap-5 w-30 h-30">
             <div
@@ -113,7 +113,7 @@ function App() {
           <li className="flex items-center justify-between gap-5 w-30 h-30">
             <div
               className={`w-10 h-10 rounded-full border border-white flex items-center justify-center ${
-                currentState == 4
+                currentState >= 4
                   ? "bg-LightBlue text-MarineBlue border-none"
                   : "bg-transparent text-white "
               }`}

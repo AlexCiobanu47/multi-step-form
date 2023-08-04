@@ -46,14 +46,14 @@ const PlanCard: React.FC<PlanCardProps> = ({
         You have the option of monthly or yearly billing.
       </p>
       <form className="my-5">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <div
             className={`border-2 ${
               plan === 1 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
-            } rounded-lg cursor-pointer flex gap-5 p-2 `}
+            } rounded-lg cursor-pointer flex sm:flex-col sm:flex-1 gap-5 p-2 `}
             onClick={handleOption1Click}
           >
-            <img src={arcadeIcon} alt="" />
+            <img src={arcadeIcon} alt="" className="sm:w-10 sm:h-10" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Arcade</h2>
               <h3 className="text-CoolGray">
@@ -64,15 +64,22 @@ const PlanCard: React.FC<PlanCardProps> = ({
                   <span>{arcadePrice * 10}/yr</span>
                 )}
               </h3>
+              <p
+                className={`${
+                  isMonthly ? "text-transparent" : "text-MarineBlue"
+                }`}
+              >
+                2 months free
+              </p>
             </div>
           </div>
           <div
             className={`border-2 ${
               plan === 2 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
-            } rounded-lg cursor-pointer flex gap-5 p-2 `}
+            } rounded-lg cursor-pointer flex sm:flex-col sm:flex-1 gap-5 p-2 `}
             onClick={handleOption2Click}
           >
-            <img src={advancedIcon} alt="" />
+            <img src={advancedIcon} alt="" className="sm:w-10 sm:h-10" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Advanced</h2>
               <h3 className="text-CoolGray">
@@ -83,15 +90,22 @@ const PlanCard: React.FC<PlanCardProps> = ({
                   <span>{advancedPrice * 10}/yr</span>
                 )}
               </h3>
+              <p
+                className={`${
+                  isMonthly ? "text-transparent" : "text-MarineBlue"
+                }`}
+              >
+                2 months free
+              </p>
             </div>
           </div>
           <div
             className={`border-2 ${
               plan === 3 ? "border-MarineBlue bg-LightGray" : "border-CoolGray"
-            } rounded-lg cursor-pointer flex gap-5 p-2 `}
+            } rounded-lg cursor-pointer flex sm:flex-col sm:flex-1 gap-5 p-2 `}
             onClick={handleOption3Click}
           >
-            <img src={proIcon} alt="" />
+            <img src={proIcon} alt="" className="sm:w-10 sm:h-10" />
             <div>
               <h2 className="text-MarineBlue font-semibold">Pro</h2>
               <h3 className="text-CoolGray">
@@ -102,6 +116,13 @@ const PlanCard: React.FC<PlanCardProps> = ({
                   <span>{proPrice * 10}/yr</span>
                 )}
               </h3>
+              <p
+                className={`${
+                  isMonthly ? "text-transparent" : "text-MarineBlue"
+                }`}
+              >
+                2 months free
+              </p>
             </div>
           </div>
         </div>
