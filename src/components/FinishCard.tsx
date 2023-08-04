@@ -23,34 +23,69 @@ const FinishCard: React.FC<FinishCardProps> = ({
     nextState();
   };
   return (
-    <div className="bg-white p-5">
-      <h1>Finishing up</h1>
-      <p>Double-check everything looks OK before confirming</p>
+    <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
+      <h1 className="text-MarineBlue text-xl font-bold">Finishing up</h1>
+      <p className="text-CoolGray">
+        Double-check everything looks OK before confirming
+      </p>
       <div>
-        <div className="border-b-2">
+        <div className="border-b-2 flex items-center justify-between py-4">
           <div>
-            <h2>
-              {data.plan}
-              {data.monthlyPlan && <span>(Monthly)</span>}
-              {!data.monthlyPlan && <span>(Yearly)</span>}
-            </h2>
-            <button>Change</button>
+            <div className="flex text-MarineBlue font-semibold">
+              <div>
+                {data.plan == 1 && <h2>Arcade</h2>}
+                {data.plan == 2 && <h2>Advanced</h2>}
+                {data.plan == 3 && <h2>Pro</h2>}
+              </div>
+              <div>
+                {data.monthlyPlan && <span>(Monthly)</span>}
+                {!data.monthlyPlan && <span>(Yearly)</span>}
+              </div>
+            </div>
+            <button className="text-CoolGray font-semibold underline">
+              Change
+            </button>
           </div>
           <p>$90/yr</p>
         </div>
-        <div>
-          {onlineService && <p>online service</p>}
-          {largerStorage && <p>larger storage</p>}
-          {customizableProfile && <p>customizable profile</p>}
+        <div className="flex flex-col gap-2 my-2">
+          {onlineService && (
+            <div className="flex items-center justify-between">
+              <p className="text-CoolGray">Online service</p>
+              <p className="text-MarineBlue font-medium">+$1/mo</p>
+            </div>
+          )}
+          {largerStorage && (
+            <div className="flex items-center justify-between">
+              <p className="text-CoolGray">Larger storage</p>
+              <p className="text-MarineBlue font-medium">+$2/mo</p>
+            </div>
+          )}
+          {customizableProfile && (
+            <div className="flex items-center justify-between">
+              <p className="text-CoolGray">Customizable profile</p>
+              <p className="text-MarineBlue font-medium">+$2/mo</p>
+            </div>
+          )}
         </div>
-        <div>
-          <p>Total(per year)</p>
-          <p>$120/yr</p>
+        <div className="flex items-center justify-between">
+          <p className="text-CoolGray">Total(per year)</p>
+          <p className="text-PurplishBlue font-semibold">$120/yr</p>
         </div>
       </div>
-      <div>
-        <button onClick={handlePreviousStep}>Go back</button>
-        <button onClick={handleNextStep}>Confirm</button>
+      <div className="flex items-center justify-between">
+        <button
+          onClick={handlePreviousStep}
+          className="text-white py-1 px-4 bg-MarineBlue rounded-md"
+        >
+          Go back
+        </button>
+        <button
+          onClick={handleNextStep}
+          className="text-white py-1 px-4 bg-MarineBlue rounded-md"
+        >
+          Confirm
+        </button>
       </div>
     </div>
   );

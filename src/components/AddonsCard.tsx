@@ -29,42 +29,69 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
     nextState();
   };
   return (
-    <div className="bg-white p-5">
-      <h1>Pick add-ons</h1>
-      <p>Add-ons help enhance your gaming experience.</p>
+    <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
+      <h1 className="text-MarineBlue text-xl font-bold">Pick add-ons</h1>
+      <p className="text-CoolGray">
+        Add-ons help enhance your gaming experience.
+      </p>
       <form>
         <div>
-          <div>
-            <div className="flex items-center border" onClick={handleClick1}>
+          <div className="flex flex-col gap-5 my-5">
+            <div
+              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              onClick={handleClick1}
+            >
               <input type="checkbox" />
               <div className="flex flex-col items-center justify-center">
-                <h2>online service</h2>
-                <h3>Access to multiplayer games</h3>
+                <h2 className="text-MarineBlue font-semibold">
+                  Online service
+                </h2>
+                <h3 className="text-CoolGray">Access to multiplayer games</h3>
               </div>
-              <p>+$1/mo</p>
+              <p className="text-PurplishBlue">+$1/mo</p>
             </div>
-            <div className="flex items-center border" onClick={handleClick2}>
+            <div
+              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              onClick={handleClick2}
+            >
               <input type="checkbox" />
               <div className="flex flex-col items-center justify-start">
-                <h2>Larger storage</h2>
-                <h3>Extra 1TB of cloud save</h3>
+                <h2 className="text-MarineBlue font-semibold">
+                  Larger storage
+                </h2>
+                <h3 className="text-CoolGray">Extra 1TB of cloud save</h3>
               </div>
-              <p>+$2/mo</p>
+              <p className="text-PurplishBlue">+$2/mo</p>
             </div>
-            <div className="flex items-center border" onClick={handleClick3}>
+            <div
+              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              onClick={handleClick3}
+            >
               <input type="checkbox" />
               <div className="flex flex-col items-center justify-center">
-                <h2>Customizable profile</h2>
-                <h3>Custom theme on your profile</h3>
+                <h2 className="text-MarineBlue font-semibold">
+                  Customizable profile
+                </h2>
+                <h3 className="text-CoolGray">Custom theme on your profile</h3>
               </div>
-              <p>+$2/mo</p>
+              <p className="text-PurplishBlue">+$2/mo</p>
             </div>
           </div>
         </div>
       </form>
-      <div>
-        <button onClick={handlePreviousStep}>Go back</button>
-        <button onClick={handleNextStep}>Next Step</button>
+      <div className="flex items-center justify-between">
+        <button
+          onClick={handlePreviousStep}
+          className="text-white py-1 px-4 bg-MarineBlue rounded-md"
+        >
+          Go back
+        </button>
+        <button
+          onClick={handleNextStep}
+          className="text-white py-1 px-4 bg-MarineBlue rounded-md"
+        >
+          Next Step
+        </button>
       </div>
     </div>
   );

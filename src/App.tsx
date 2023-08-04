@@ -1,4 +1,5 @@
 import { useState } from "react";
+import mobileSidebar from "./assets/images/bg-sidebar-mobile.svg";
 import AddonsCard from "./components/AddonsCard";
 import FinishCard from "./components/FinishCard";
 import PersonalnfoCard from "./components/PersonalnfoCard";
@@ -62,42 +63,45 @@ function App() {
     setCustomizableProfile(!customizableProfile);
   };
   return (
-    <div>
-      {currentState == 1 && (
-        <PersonalnfoCard
-          setName={setName}
-          setEmail={setEmail}
-          setPhone={setPhone}
-          nextState={incrementState}
-        />
-      )}
-      {currentState == 2 && (
-        <PlanCard
-          setOption={setOption}
-          setPeriod={setPlanPeriod}
-          previousState={decrementState}
-          nextState={incrementState}
-        />
-      )}
-      {currentState == 3 && (
-        <AddonsCard
-          previousState={decrementState}
-          nextState={incrementState}
-          changeOnlineService={changeOnlineService}
-          changeLargerStorage={changeLargerStorage}
-          changeCustomizableProfile={changeCustomizableProfile}
-        />
-      )}
-      {currentState == 4 && (
-        <FinishCard
-          data={inputData}
-          previousState={decrementState}
-          nextState={incrementState}
-          onlineService={onlineService}
-          largerStorage={largerStorage}
-          customizableProfile={customizableProfile}
-        />
-      )}
+    <div className="w-full h-full flex flex-col">
+      <img src={mobileSidebar} alt="" className="w-full" />
+      <div className="-mt-20 ">
+        {currentState == 1 && (
+          <PersonalnfoCard
+            setName={setName}
+            setEmail={setEmail}
+            setPhone={setPhone}
+            nextState={incrementState}
+          />
+        )}
+        {currentState == 2 && (
+          <PlanCard
+            setOption={setOption}
+            setPeriod={setPlanPeriod}
+            previousState={decrementState}
+            nextState={incrementState}
+          />
+        )}
+        {currentState == 3 && (
+          <AddonsCard
+            previousState={decrementState}
+            nextState={incrementState}
+            changeOnlineService={changeOnlineService}
+            changeLargerStorage={changeLargerStorage}
+            changeCustomizableProfile={changeCustomizableProfile}
+          />
+        )}
+        {currentState == 4 && (
+          <FinishCard
+            data={inputData}
+            previousState={decrementState}
+            nextState={incrementState}
+            onlineService={onlineService}
+            largerStorage={largerStorage}
+            customizableProfile={customizableProfile}
+          />
+        )}
+      </div>
     </div>
   );
 }
