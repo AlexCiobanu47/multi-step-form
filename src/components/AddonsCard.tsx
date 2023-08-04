@@ -6,6 +6,9 @@ interface AddonsCardProps {
   changeLargerStorage: () => void;
   changeCustomizableProfile: () => void;
   isMonthly: boolean;
+  onlineService: boolean;
+  largerStorage: boolean;
+  customizableProfile: boolean;
 }
 const AddonsCard: React.FC<AddonsCardProps> = ({
   previousState,
@@ -14,6 +17,9 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
   changeLargerStorage,
   changeCustomizableProfile,
   isMonthly,
+  onlineService,
+  largerStorage,
+  customizableProfile,
 }) => {
   const handleClick1 = () => {
     changeOnlineService();
@@ -43,10 +49,13 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
         <div>
           <div className="flex flex-col gap-5 my-5">
             <div
-              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              className={`flex items-center justify-around border ${
+                onlineService
+                  ? "border-MarineBlue bg-LightGray"
+                  : "border-LightGray"
+              } cursor-pointer rounded-lg`}
               onClick={handleClick1}
             >
-              <input type="checkbox" />
               <div className="flex flex-col items-center justify-center">
                 <h2 className="text-MarineBlue font-semibold">
                   Online service
@@ -63,10 +72,13 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
               </p>
             </div>
             <div
-              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              className={`flex items-center justify-around border ${
+                largerStorage
+                  ? "border-MarineBlue bg-LightGray"
+                  : "border-LightGray"
+              } cursor-pointer rounded-lg`}
               onClick={handleClick2}
             >
-              <input type="checkbox" />
               <div className="flex flex-col items-center justify-start">
                 <h2 className="text-MarineBlue font-semibold">
                   Larger storage
@@ -83,10 +95,13 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
               </p>
             </div>
             <div
-              className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
+              className={`flex items-center justify-around border ${
+                customizableProfile
+                  ? "border-MarineBlue bg-LightGray"
+                  : "border-LightGray"
+              } cursor-pointer rounded-lg`}
               onClick={handleClick3}
             >
-              <input type="checkbox" />
               <div className="flex flex-col items-center justify-center">
                 <h2 className="text-MarineBlue font-semibold">
                   Customizable profile
