@@ -3,5 +3,4 @@ export interface inputData {
   email: string;
   phoneNumber: string;
   plan: number;
-  monthlyPlan: boolean;
 }

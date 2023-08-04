@@ -88,6 +88,7 @@ function App() {
             changeOnlineService={changeOnlineService}
             changeLargerStorage={changeLargerStorage}
             changeCustomizableProfile={changeCustomizableProfile}
+            isMonthly={isMonthly}
           />
         )}
         {currentState == 4 && (

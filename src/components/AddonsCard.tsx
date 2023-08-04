@@ -5,6 +5,7 @@ interface AddonsCardProps {
   changeOnlineService: () => void;
   changeLargerStorage: () => void;
   changeCustomizableProfile: () => void;
+  isMonthly: boolean;
 }
 const AddonsCard: React.FC<AddonsCardProps> = ({
   previousState,
@@ -12,6 +13,7 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
   changeOnlineService,
   changeLargerStorage,
   changeCustomizableProfile,
+  isMonthly,
 }) => {
   const handleClick1 = () => {
     changeOnlineService();
@@ -28,6 +30,9 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
   const handleNextStep = () => {
     nextState();
   };
+  const option1Price = 1;
+  const option2Price = 2;
+  const option3Price = 2;
   return (
     <div className="z-50 bg-white p-5 m-5 rounded-lg shadow-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Pick add-ons</h1>
@@ -48,7 +53,14 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
                 </h2>
                 <h3 className="text-CoolGray">Access to multiplayer games</h3>
               </div>
-              <p className="text-PurplishBlue">+$1/mo</p>
+              <p className="text-PurplishBlue">
+                +$
+                {isMonthly ? (
+                  <span>{option1Price}/mo</span>
+                ) : (
+                  <span>{option1Price * 10}/yr</span>
+                )}
+              </p>
             </div>
             <div
               className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
@@ -61,7 +73,14 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
                 </h2>
                 <h3 className="text-CoolGray">Extra 1TB of cloud save</h3>
               </div>
-              <p className="text-PurplishBlue">+$2/mo</p>
+              <p className="text-PurplishBlue">
+                +$
+                {isMonthly ? (
+                  <span>{option2Price}/mo</span>
+                ) : (
+                  <span>{option2Price * 10}/yr</span>
+                )}
+              </p>
             </div>
             <div
               className="flex items-center gap- justify-around border cursor-pointer rounded-lg"
@@ -74,7 +93,14 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
                 </h2>
                 <h3 className="text-CoolGray">Custom theme on your profile</h3>
               </div>
-              <p className="text-PurplishBlue">+$2/mo</p>
+              <p className="text-PurplishBlue">
+                +$
+                {isMonthly ? (
+                  <span>{option3Price}/mo</span>
+                ) : (
+                  <span>{option3Price * 10}/yr</span>
+                )}
+              </p>
             </div>
           </div>
         </div>
