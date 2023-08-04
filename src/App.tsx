@@ -63,6 +63,47 @@ function App() {
     <div className=" flex flex-col max-w-3xl bg-LightGray items-start justify-start sm:flex-row sm:p-5 shadow-lg">
       <img src={mobileSidebar} alt="" className="w-full sm:hidden" />
       <img src={desktopSidebar} alt="" className="hidden sm:inline-block" />
+      <div className="-mt-32 sm:-mt-0 mb-24 sm:mb-0 sm:-ml-52 sm:mr-52 self-center">
+        <ul className="flex sm:flex-col gap-5">
+          <div></div>
+          <li
+            className={`w-10 h-10 rounded-full border border-white flex items-center justify-center ${
+              currentState == 1
+                ? "bg-LightBlue text-MarineBlue border-none"
+                : "bg-transparent text-white "
+            }`}
+          >
+            1
+          </li>
+          <li
+            className={`w-10 h-10 rounded-full border border-white flex items-center justify-center ${
+              currentState == 2
+                ? "bg-LightBlue text-MarineBlue border-none"
+                : "bg-transparent text-white "
+            }`}
+          >
+            2
+          </li>
+          <li
+            className={`w-10 h-10 rounded-full border border-white flex items-center justify-center ${
+              currentState == 3
+                ? "bg-LightBlue text-MarineBlue border-none"
+                : "bg-transparent text-white "
+            }`}
+          >
+            3
+          </li>
+          <li
+            className={`w-10 h-10 rounded-full border border-white flex items-center justify-center ${
+              currentState == 4
+                ? "bg-LightBlue text-MarineBlue border-none"
+                : "bg-transparent text-white "
+            }`}
+          >
+            4
+          </li>
+        </ul>
+      </div>
       <div className="-mt-20 sm:-mt-0 ">
         {currentState == 1 && (
           <PersonalnfoCard
