@@ -40,7 +40,7 @@ const AddonsCard: React.FC<AddonsCardProps> = ({
   const option2Price = 2;
   const option3Price = 2;
   return (
-    <div className="z-50 bg-white p-5 m-5 flex flex-col">
+    <div className="z-50 bg-white p-5 m-5 rounded-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Pick add-ons</h1>
       <p className="text-CoolGray">
         Add-ons help enhance your gaming experience.

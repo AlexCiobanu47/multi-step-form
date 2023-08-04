@@ -56,7 +56,7 @@ const FinishCard: React.FC<FinishCardProps> = ({
     calculateTotal();
   }, []);
   return (
-    <div className="z-50 bg-white p-5 m-5 flex flex-col">
+    <div className="z-50 bg-white p-5 m-5 rounded-lg flex flex-col">
       <h1 className="text-MarineBlue text-xl font-bold">Finishing up</h1>
       <p className="text-CoolGray">
         Double-check everything looks OK before confirming

@@ -47,8 +47,8 @@ const PersonalnfoCard: React.FC<PersonalInfoCardProps> = ({
   };
 
   return (
-    <div className="z-50 bg-white p-5 m-5 rounded-lg  flex flex-col">
-      <div>
+    <div className="z-50 bg-white p-5 m-5 rounded-lg items-center justify-center flex flex-col">
+      <div className="items-center justify-center">
         <h1 className="text-MarineBlue text-xl font-bold">Personal info</h1>
         <p className="text-CoolGray">
           Please provide your name, email, address, and phone number.

@@ -60,7 +60,7 @@ function App() {
     setCustomizableProfile(!customizableProfile);
   };
   return (
-    <div className=" flex flex-col max-w-3xl bg-white items-center justify-center sm:flex-row sm:p-5 shadow-lg">
+    <div className=" flex flex-col max-w-3xl bg-LightGray items-start justify-start sm:flex-row sm:p-5 shadow-lg">
       <img src={mobileSidebar} alt="" className="w-full sm:hidden" />
       <img src={desktopSidebar} alt="" className="hidden sm:inline-block" />
       <div className="-mt-20 sm:-mt-0 ">
